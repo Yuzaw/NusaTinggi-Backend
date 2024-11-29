@@ -2,6 +2,7 @@ const User = require('../models/users');
 const Product = require('../models/products');
 const MyTrip = require('../models/myTrip');
 
+
 const syncDatabase = async () => {
   try {
     await User.sync({ force: false });

@@ -6,8 +6,14 @@ const productController = require('../controllers/productController');
 const communityController = require('../controllers/communityController');
 const myTripController = require('../controllers/myTripController');
 const businessController = require('../controllers/businessController');
+// const path = require('path');
+// const multer = require('multer');
+const navigationController = require('../controllers/navigationController');
+// const validateUpload = require('../middleware/validateUpload');
 const authenticateToken = require('../middleware/authToken');
 const authBusiness = require('../middleware/authBusiness');
+
+// const upload = multer({ storage: multer.memoryStorage() });
 
 // Homepage Route
 router.get('/homepage', authenticateToken, (req, res) => {
@@ -49,5 +55,41 @@ router.get('/products/:id', productController.getProductById);
 router.get('/products/recommendations', productController.getTopRecommendedProducts);
 router.post('/products/:id/buy', productController.incrementJumlahPembeli);
 router.post('/products/:id/rate', productController.addRating);
+
+//m=navigasi
+// router.get('/maps/:filename', (req, res) => {
+//   const filePath = path.join(__dirname, '../public', req.params.filename);
+
+//   res.download(filePath, (err) => {
+//     if (err) {
+//       res.status(500).json({ error: 'File tidak ditemukan atau tidak bisa diunduh' });
+//     }
+//   });
+// });
+
+// router.post('/maps/navigate', getNavigation);
+// router.get('/navigation/:trailId', getTrailCoordinates);
+
+router.get(
+  '/navigation/:trailId/download',
+
+  navigationController.downloadNavigationFile
+);
+
+router.post('/trails/:trailId/duplicate', authenticateToken, navigationController.duplicateFileToUser);
+
+// router.post(
+//   '/navigation/upload',
+//   // Verifikasi token
+//   validateUpload, // Validasi file
+//   upload.single('file'), // Middleware multer
+//   navigationController.uploadNavigationFile
+// );
+router.get(
+  '/navigation/:userId/:trailId',
+  authenticateToken, // Middleware autentikasi token
+  navigationController.getTrailCoordinates
+);
+
 
 module.exports = router;

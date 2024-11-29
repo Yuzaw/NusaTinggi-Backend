@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps Trail</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDr2U0Mc0qEG_bU3-0w0GNTtd-4mBCeTmw&callback=initMap" async defer></script>
+  <script>
+    let map;
+
+    // Inisialisasi peta
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: { lat: -6.8997830, lng: 108.4022763 }, // Posisi default center map (basecamp)
+      });
+
+      // Panggil fungsi untuk mengambil koordinat trail dan menggambar jalur
+      fetchTrailCoordinates("trail1"); // Ganti dengan ID trail sesuai yang diinginkan
+    }
+
+    // Fungsi untuk mengambil data koordinat dari API backend
+    async function fetchTrailCoordinates(trailId) {
+    const response = await fetch(`/api/navigation/${trailId}`);
+    const data = await response.json();
+
+    console.log(data);  // Tambahkan ini untuk memeriksa apakah data diterima dengan benar
+
+    if (data.elements) {
+        drawTrailOnMap(data.elements);
+    } else {
+        console.log("No elements found in the data");
+    }
+    }
+
+
+    // Fungsi untuk menggambar jalur pada peta
+    function drawTrailOnMap(elements) {
+      const pathCoordinates = elements.filter(el => el.type === 'node').map(el => ({
+        lat: el.lat,
+        lng: el.lon,
+      }));
+      console.log("Path Coordinates: ", pathCoordinates);
+      const trailPath = new google.maps.Polyline({
+        path: pathCoordinates,
+        geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+      });
+
+      trailPath.setMap(map);
+    }
+
+    document.getElementById('loadTrailBtn').addEventListener('click', function() {
+    const trailId = 'trail1';  // ID jalur pendakian yang ingin ditampilkan
+    fetchTrailCoordinates(trailId);
+});
+
+  </script>
+</head>
+<body>
+  <h1>Hiking Trail on Google Maps</h1>
+  <div id="map" style="width: 100%; height: 500px;"></div>
+  <button id="loadTrailBtn">Tampilkan Rute Pendakian</button>
+
+</body>
+</html>
