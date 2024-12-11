@@ -13,9 +13,8 @@
       "Apa barang utama yang harus dibawa saat pendakian gunung?",
       "Perlengkapan apa saja yang wajib ada dalam tas pendakian gunung?"
     ],
-    "response": [
-      "Barang wajib yang perlu dibawa saat hiking meliputi navigasi seperti peta fisik, kompas, atau GPS untuk orientasi, pakaian antiair dan berlapis untuk menghadapi cuaca tak terduga, serta sepatu hiking yang tahan air dan nyaman untuk menjaga kestabilan; perlengkapan tidur seperti tenda ringan, sleeping bag, dan matras untuk kenyamanan jika bermalam diperlukan; alat masak portabel untuk perjalanan panjang, trash bag untuk kebersihan lingkungan, serta kotak P3K yang mencakup perban, plester, antiseptik, obat pribadi, dan pisau multifungsi untuk kebutuhan darurat; senter atau headlamp dengan baterai awet untuk penerangan malam hari, power bank untuk mengisi ulang perangkat elektronik, trekking pole untuk keseimbangan, dan barang tambahan seperti pakaian tebal saat musim dingin atau alat filter air untuk memastikan ketersediaan air bersih; simpan barang berat di bagian tengah carrier untuk menjaga keseimbangan dan pastikan barang penting seperti peta dan P3K mudah diakses."
-    ]
+    "response": "Barang wajib yang perlu dibawa saat hiking meliputi navigasi seperti peta fisik, kompas, atau GPS untuk orientasi, pakaian antiair dan berlapis untuk menghadapi cuaca tak terduga, serta sepatu hiking yang tahan air dan nyaman untuk menjaga kestabilan; perlengkapan tidur seperti tenda ringan, sleeping bag, dan matras untuk kenyamanan jika bermalam diperlukan; alat masak portabel untuk perjalanan panjang, trash bag untuk kebersihan lingkungan, serta kotak P3K yang mencakup perban, plester, antiseptik, obat pribadi, dan pisau multifungsi untuk kebutuhan darurat; senter atau headlamp dengan baterai awet untuk penerangan malam hari, power bank untuk mengisi ulang perangkat elektronik, trekking pole untuk keseimbangan, dan barang tambahan seperti pakaian tebal saat musim dingin atau alat filter air untuk memastikan ketersediaan air bersih; simpan barang berat di bagian tengah carrier untuk menjaga keseimbangan dan pastikan barang penting seperti peta dan P3K mudah diakses."
+    
   },
   {
     "intent": "Kebutuhan",
